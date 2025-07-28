@@ -6,7 +6,7 @@ function convertToBool(text, fault = 'true') {
 }
 module.exports = {
 SESSION_ID: process.env.SESSION_ID || "OUci0TgA#iP7e6a0WcaXf6y9uYGAE9PqMxAMfVUVp3k5Owj_NqnQ",
-ALIVE_IMG: process.env.ALIVE_IMG || "https://i.ibb.co/Xrpdvf3T/z-Oic-GDOn3l.jpg",
+ALIVE_IMG: process.env.ALIVE_IMG || "https://res.cloudinary.com/df2rnoijw/image/upload/v1752740024/bankl0exnr8remsz8t32.jpg",
 ALIVE_MSG: process.env.ALIVE_MSG || "┏━━━━━━━━━━━➤◍◉➤\n│ *🔰𝐇𝐞𝐲 𝐈'𝐦 𝐑𝐎𝐂𝐇𝐀𝐍𝐀-𝐌𝐃 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐁𝐨𝐭⚡*\n┗━━━━━━━━━━━━━━━━━━━━\n━➤◍◉➤\n┏━━━━━━━━━━━➤◍◉➤\n│ *🔔𝐈'𝐦 𝐀𝐥𝐢𝐯𝐞 𝐍𝐨𝐰❤️*\n┗━━━━━━━━━━\n━➤◍◉➤\n┏━━━━━━━━━━━➤◍◉➤\n│ *⚖️𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 - : 𝐑𝐎𝐂𝐇𝐀𝐍𝐀 𝐌𝐃|*\n┗━━━━━━━━━━━━━━━━━━━━\n*2024🤍*\n\n┏━━━━━━━━━━━➤◍◉➤\n*This bot is made by ʀᴏᴄʜᴀɴᴀ ᴊᴀɴᴀᴅᴇᴇᴘᴀ updates will coming*\n┗━━━━━━━━━━━━━━━━━━━━",
 AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "true",
 MODE: process.env.MODE || "public",
