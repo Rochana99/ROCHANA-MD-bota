@@ -1,64 +1,88 @@
-const { cmd } = require("../command");
+const {
+    default: makeWASocket,
+    getAggregateVotesInPollMessage, 
+    useMultiFileAuthState,
+    DisconnectReason,
+    getDevice,
+    fetchLatestBaileysVersion,
+    jidNormalizedUser,
+    getContentType,
+    Browsers,
+    delay,
+    makeInMemoryStore,
+    makeCacheableSignalKeyStore,
+    downloadContentFromMessage,
+    generateForwardMessageContent,
+    generateWAMessageFromContent,
+    prepareWAMessageMedia,
+    proto
+} = require('@whiskeysockets/baileys')
+const fs = require('fs')
+const FileType = require('file-type')
+const {cmd , commands} = require('../command')
 
-cmd({
+
+
+
+const commandrvo = {
   pattern: "vv",
-  alias: ["viewonce", 'retrive'],
-  react: '🐳',
-  desc: "Owner Only - retrieve quoted message back to user",
-  category: "owner",
+  react: "🌠",
+  alias: ["vv","❤️"],
+  desc: "Check bot's ping",
+  category: "main",
+  use: ".vv",
   filename: __filename
-}, async (client, message, match, { from, isCreator }) => {
+};
+
+cmd(commandrvo, async (sock, message, msgData, { from,quoted,body,isCmd,command,args,q,isGroup,sender,senderNumber,botNumber2,botNumber,pushname,isMe,isOwner,groupMetadata,groupName,participants,groupAdmins,isBotAdmins,isAdmins,
+  reply
+}) => {
   try {
-    if (!isCreator) {
-      return await client.sendMessage(from, {
-        text: "*📛 This is an owner command.*"
-      }, { quoted: message });
+    const quotedMsg = msgData?.msg?.contextInfo?.quotedMessage;
+
+    if (quotedMsg) {
+      if (quotedMsg.imageMessage?.viewOnce) {
+        console.log("Detected a View Once image");
+        let caption = quotedMsg.imageMessage?.caption || '';
+        let mediaPath = await sock.downloadAndSaveMediaMessage(quotedMsg.imageMessage);
+
+        const mediaObject = { url: mediaPath };
+        const response = { image: mediaObject, caption };
+
+        return sock.sendMessage(msgData.chat, response);
+      } 
+      
+      else if (quotedMsg.videoMessage?.viewOnce) {
+        console.log("Detected a View Once video");
+        let caption = quotedMsg.videoMessage?.caption || '';
+        let mediaPath = await sock.downloadAndSaveMediaMessage(quotedMsg.videoMessage);
+
+        const mediaObject = { url: mediaPath };
+        const response = { video: mediaObject, caption };
+
+        return sock.sendMessage(msgData.chat, response);
+      } 
+      
+      else if (quotedMsg.audioMessage?.viewOnce) {
+        console.log("Detected a View Once audio");
+        let caption = quotedMsg.audioMessage?.caption || '';
+        let mediaPath = await sock.downloadAndSaveMediaMessage(quotedMsg.audioMessage);
+
+        const mediaObject = { url: mediaPath };
+        const response = { audio: mediaObject, caption };
+
+        return sock.sendMessage(msgData.chat, response);
+      } 
+      
+      else {
+        return reply("```𝗧𝗛𝗜𝗦 𝗜𝗦 𝗡𝗢𝗧 𝗢𝗡𝗖𝗘 𝗩𝗜𝗘𝗪!```"); // "This is not a View Once message!"
+      }
+    } 
+    
+    else {
+      return reply("```𝗧𝗛𝗜𝗦 𝗜𝗦 𝗡𝗢𝗧 𝗢𝗡𝗘𝗖𝗘 𝗩𝗜𝗘𝗪!```"); // "Please reply to a View Once message!"
     }
-
-    if (!match.quoted) {
-      return await client.sendMessage(from, {
-        text: "*🍁 Please reply to a view once message!*"
-      }, { quoted: message });
-    }
-
-    const buffer = await match.quoted.download();
-    const mtype = match.quoted.mtype;
-    const options = { quoted: message };
-
-    let messageContent = {};
-    switch (mtype) {
-      case "imageMessage":
-        messageContent = {
-          image: buffer,
-          caption: match.quoted.text || '',
-          mimetype: match.quoted.mimetype || "image/jpeg"
-        };
-        break;
-      case "videoMessage":
-        messageContent = {
-          video: buffer,
-          caption: match.quoted.text || '',
-          mimetype: match.quoted.mimetype || "video/mp4"
-        };
-        break;
-      case "audioMessage":
-        messageContent = {
-          audio: buffer,
-          mimetype: "audio/mp4",
-          ptt: match.quoted.ptt || false
-        };
-        break;
-      default:
-        return await client.sendMessage(from, {
-          text: "❌ Only image, video, and audio messages are supported"
-        }, { quoted: message });
-    }
-
-    await client.sendMessage(from, messageContent, options);
   } catch (error) {
-    console.error("vv Error:", error);
-    await client.sendMessage(from, {
-      text: "❌ Error fetching vv message:\n" + error.message
-    }, { quoted: message });
+    console.error("Error:", error);
   }
 });
