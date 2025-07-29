@@ -15,7 +15,14 @@
       "description": "Put your alive img here.",
       "required": true
     },
-    
+
+    "OWNER_NUMBER": {
+      "description": "put the owner number for bot.",
+      "required": false,
+      "value": "94729012605"
+
+    }, 
+
     "ALIVE_MSG": {
       "description": "Put your alive msg here.",
       "required": true
