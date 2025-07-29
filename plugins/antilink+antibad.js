@@ -33,20 +33,8 @@ cmd({
   }
 });
 
-const { cmd } = require('../command');
-const config = require("../config");
+//////////anti link by rochana md
 
-cmd({
-  'on': "body"
-}, async (conn, m, store, {
-  from,
-  body,
-  sender,
-  isGroup,
-  isAdmins,
-  isBotAdmins,
-  reply
-}) => {
   try {
     // Initialize warnings if not exists
     if (!global.warnings) {
