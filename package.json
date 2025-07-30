@@ -113,6 +113,7 @@
         "bing-translate-api":"4.0.2", 
         "ruhend-scraper" : "8.0.3",
         "dark-yasiya-sinhalasub.lk": "1.0.1",
+        "@dark-yasiya/yt-dl.js": "latest",
         "moment-timezone": "^0.5.43",
         "mfiredlcore-vihangayt": "^1.0.0",
         "ytsearch-venom": "1.0.0",
