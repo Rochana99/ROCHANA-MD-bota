@@ -1,4 +1,4 @@
-Const {
+const {
 default: makeWASocket,
 useMultiFileAuthState,
 DisconnectReason,
@@ -8,6 +8,8 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 
+// ඉතිරි code එක එලෙසම තියෙයි
+// ...
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
 const P = require('pino')
