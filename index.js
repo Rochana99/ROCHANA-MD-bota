@@ -149,7 +149,7 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
 if (isCmd && config.READ_CMD === "true") {
               await conn.readMessages([mek.key])  // Mark command as read
           }
-if(!isOwner && config.MODE === "private") return
+if(!isOwner && config.MODE === "private" && !isMe) return
 if(!isOwner && isGroup && config.MODE === "inbox") return
 if(!isOwner && !isGroup && config.MODE === "groups") return
 
@@ -161,13 +161,14 @@ for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
 }}
 //=============================//
+
 if (config.ANTI_LINK == "true"){
         if (!isOwner ) {   
         if (body.match(`whatsapp.com`)) {
             
         if (isMe) return await reply("Link Derect but I cant Delete link")
         if(groupAdmins.includes(sender)) return
-            let repoInfo = `📌Link Detected ROCHANA-MD📌`;
+            let repoInfo = `📌Link Detected SHANUWA-MD📌`;
         await conn.sendMessage(from, { text: repoInfo }, { quoted: mek });  
         }}}
 if (config.ANTI_LINK == "true"){
@@ -176,7 +177,7 @@ if (config.ANTI_LINK == "true"){
             
         if (isMe) return await reply("Link Derect but I cant Delete link")
         if(groupAdmins.includes(sender)) return
-            let repoInfo = `📌 *Link Detected by ROCHANA-MD* 📌\n⚠️❗ *Anti link on....* ⚠️❗`;
+            let repoInfo = `📌 *Link Detected by SHANUWA-MD* 📌\n⚠️❗ *Anti link on....* ⚠️❗`;
         await conn.sendMessage(from, { text: repoInfo }, { quoted: mek });  
         }}}
 if (config.ANTI_BAD == "true"){
