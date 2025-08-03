@@ -8,7 +8,7 @@ cmd({
   on: "body"
 },    
 async (robin, mek, m, { from, body, isOwner }) => {
-    const filePath = path.join(__dirname, '../data/autoreply.json');
+    const filePath = path.join(__dirname, '../media/autoreply.json');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     for (const text in data) {
         if (body.toLowerCase() === text.toLowerCase()) {
