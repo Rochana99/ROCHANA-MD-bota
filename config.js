@@ -10,7 +10,7 @@ ALIVE_IMG: process.env.ALIVE_IMG || "https://res.cloudinary.com/df2rnoijw/image/
 ALIVE_MSG: process.env.ALIVE_MSG || "┏━━━━━━━━━━━➤◍◉➤\n│ *🔰𝐇𝐞𝐲 𝐈'𝐦 𝐑𝐎𝐂𝐇𝐀𝐍𝐀-𝐌𝐃 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐁𝐨𝐭⚡*\n┗━━━━━━━━━━━━━━━━━━━━\n━➤◍◉➤\n┏━━━━━━━━━━━➤◍◉➤\n│ *🔔𝐈'𝐦 𝐀𝐥𝐢𝐯𝐞 𝐍𝐨𝐰❤️*\n┗━━━━━━━━━━\n━➤◍◉➤\n┏━━━━━━━━━━━➤◍◉➤\n│ *⚖️𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 - : 𝐑𝐎𝐂𝐇𝐀𝐍𝐀 𝐌𝐃|*\n┗━━━━━━━━━━━━━━━━━━━━\n*2024🤍*\n\n┏━━━━━━━━━━━➤◍◉➤\n*This bot is made by ʀᴏᴄʜᴀɴᴀ ᴊᴀɴᴀᴅᴇᴇᴘᴀ updates will coming*\n┗━━━━━━━━━━━━━━━━━━━━",
 AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "true",
 MODE: process.env.MODE || "public",
-BOT_NUMBER: process.env.BOT_NUMBER || "94729012605",
+BOT_NUMBER: process.env.BOT_NUMBER || "94766443560",
 OWNER_REACT: process.env.OWNER_REACT || "👨‍💻",
 OMDB_API_KEY: process.env.OMDB_API_KEY || "76cb7f39",
 READ_CMD: process.env.READ_CMD || "true",
