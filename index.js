@@ -8,8 +8,6 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 
-// ඉතිරි code එක එලෙසම තියෙයි
-// ...
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
 const P = require('pino')
@@ -21,7 +19,7 @@ const axios = require('axios')
 const { File } = require('megajs')
 const prefix = '.'
 
-const ownerNumber = ['94785871303']
+const ownerNumber = ['94766443560']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -31,7 +29,7 @@ const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
 fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-console.log("SHANUWA-MD Session downloaded ✅")
+console.log("ROCHANA-MD Session downloaded ✅")
 })})}
 
 const express = require("express");
@@ -41,7 +39,7 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-console.log("Connecting SHANUWA-MD...⏳️");
+console.log("Connecting ROCHANA-MD...⏳️");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -61,7 +59,7 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('SHANUWA-MD Is Installing...🔥 ')
+console.log('ROCHANA-MD Is Installing...🔥 ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -69,11 +67,11 @@ require("./plugins/" + plugin);
 }
 });
 console.log('Plugins installed successful 🔌')
-console.log('SHANUWA-MD connected to whatsapp ✅')
+console.log('ROCHANA-MD connected to whatsapp ✅')
 
 let up = `
-╭⊱✫🔮 SHANUWA-MD 🔮✫⊱╮
-│✫➠ - *📂REPOSITORY NAME:* SHANUWA-MD
+╭⊱✫🔮 ROCHANA-MD 🔮✫⊱╮
+│✫➠ - *📂REPOSITORY NAME:* ROCHANA-MD
 │✫➠ - *📃DESCRIPTION:* ❁ᴡᴏʀʟᴅ ʙᴇsᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ❁
 │✫➠ - *🛡️OWNER:* ꜱʜᴀɴᴜᴋᴀ ꜱʜᴀᴍᴇᴇɴ+ 
 │✫➠ - *🌐 URL:* https://github.com
@@ -94,8 +92,6 @@ if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STAT
 await conn.readMessages([mek.key])
 }
 const m = sms(conn, mek)
-// මෙතන අලුතින් l variable එක නිර්වචනය කරලා තියෙනවා
-const l = m; 
 const type = getContentType(mek.message)
 const content = JSON.stringify(mek.message)
 const from = mek.key.remoteJid
@@ -171,7 +167,7 @@ if (config.ANTI_LINK == "true"){
             
         if (isMe) return await reply("Link Derect but I cant Delete link")
         if(groupAdmins.includes(sender)) return
-            let repoInfo = `📌Link Detected SHANUWA-MD📌`;
+            let repoInfo = `📌Link Detected ROCHANA-MD📌`;
         await conn.sendMessage(from, { text: repoInfo }, { quoted: mek });  
         }}}
 if (config.ANTI_LINK == "true"){
@@ -180,7 +176,7 @@ if (config.ANTI_LINK == "true"){
             
         if (isMe) return await reply("Link Derect but I cant Delete link")
         if(groupAdmins.includes(sender)) return
-            let repoInfo = `📌 *Link Detected by SHANUWA-MD* 📌\n⚠️❗ *Anti link on....* ⚠️❗`;
+            let repoInfo = `📌 *Link Detected by ROCHANA-MD* 📌\n⚠️❗ *Anti link on....* ⚠️❗`;
         await conn.sendMessage(from, { text: repoInfo }, { quoted: mek });  
         }}}
 if (config.ANTI_BAD == "true"){
@@ -264,7 +260,7 @@ if (cmd) {
 if (cmd.react) conn.sendMessage(from, { react: { text: cmd.react, key: mek.key }})
 
 try {
-cmd.function(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply});
+cmd.function(conn, mek, m,{from, l:m, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply});
 } catch (e) {
 console.error("[PLUGIN ERROR] " + e);
 }
@@ -272,25 +268,25 @@ console.error("[PLUGIN ERROR] " + e);
 }
 events.commands.map(async(command) => {
 if (body && command.on === "body") {
-command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
+command.function(conn, mek, m,{from, l:m, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 } else if (mek.q && command.on === "text") {
-command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
+command.function(conn, mek, m,{from, l:m, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 } else if (
 (command.on === "image" || command.on === "photo") &&
 mek.type === "imageMessage"
 ) {
-command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
+command.function(conn, mek, m,{from, l:m, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 } else if (
 command.on === "sticker" &&
 mek.type === "stickerMessage"
 ) {
-command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
+command.function(conn, mek, m,{from, l:m, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 }});
 //============================================================================ 
 })
 }
 app.get("/", (req, res) => {
-res.send("hey I am alive, SHANUWA-MD Is started✅");
+res.send("hey I am alive, ROCHANA-MD Is started✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
