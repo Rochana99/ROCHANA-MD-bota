@@ -105,7 +105,7 @@
     "bing-translate-api": "4.0.2",
     "ruhend-scraper": "8.0.3",
     "dark-yasiya-sinhalasub.lk": "1.0.1",
-    "@dark-yasiya/yt-dl.js": "^1.1.0",
+    "@dark-yasiya/yt-dl.js": "latest",
     "moment-timezone": "^0.5.45",
     "@mrnima/tiktok-downloader": "1.0.0",
     "@mrnima/facebook-downloader": "1.0.0",
