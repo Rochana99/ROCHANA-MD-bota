@@ -95,6 +95,7 @@
         "sinhala-cricket-newsjs": "1.0.0",
         "sinhala-unicode": "2.0.0",
         "tesseract.js": "2.0.1",
+        "sequelize": "^6.3.5",
         "tiktokdl": "0.0.4",
         "translatte": "^3.0.1",
         "turndown": "7.1.3",
